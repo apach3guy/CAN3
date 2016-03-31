@@ -57,7 +57,7 @@ while frame_counter <= MAX_NUMBER_OF_FRAMES:
     #ID
     if message.arbitration_id == 258:
         pack_volt = (message.data[0] | (message.data[1]<<8))/100
-        pack_current = (((message.data[2] | (message.data[3]<<8)) & 7FFF))/10 # todo: implement sign bit 6 of byte 3? (message.data[3] & 0x20)
+        pack_current = (((message.data[2] | (message.data[3]<<8)) & 0x7FFF))/10 # todo: implement sign bit 6 of byte 3? (message.data[3] & 0x20)
         
     #ID232
     if message.arbitration_id == 562:
