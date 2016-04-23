@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# Will output frame ids and clock for the rate
 
 #Global Variables
 frame_counter = 0
@@ -10,7 +9,6 @@ import can
 import time, datetime
 import os
 
-# there's an LED on the pican, this shows how to use if desired
 led = 22
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)

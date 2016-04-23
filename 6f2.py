@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-# outputs individual bmb numbers
 
 import can
 import os
 
 #Global Variables
 frame_counter = 0
-MAX_NUMBER_OF_FRAMES = 2000
+MAX_NUMBER_OF_FRAMES = 6000
 
 print('Content-type: text/html\n\n')
 
@@ -40,7 +39,10 @@ while frame_counter <= MAX_NUMBER_OF_FRAMES:
                 temp.append(round(d4 * 0.0122, 3))
             if message.data[0] == 31:
                 break
-
+# i = 0
+# while i < len(volts):
+    # print("Brick " + str(i) + " " + str(volts[i]))
+    # i += 1
 l_volts = len(volts)
 l_temp = len(temp)
 
@@ -48,7 +50,7 @@ i = 0
 n = 1
 while i < l_volts:
     if (i % 6 == 0 and i + 1 != l_volts):
-        print("<br>Module " + str(n))
+        print("<br><b>Module " + str(n) + "</b>")
         n += 1
     print(str(volts[i]) + " V ")
     i += 1
@@ -61,7 +63,7 @@ i = 0
 n = 1
 while i < l_temp:
     if (i % 2 == 0 and i + 1 != l_temp):
-        print("<br>Module " + str(n))
+        print("<br><b>Module " + str(n) + "</b>")
         n += 1
     print(str(temp[i]) + " C ")
     i += 1
